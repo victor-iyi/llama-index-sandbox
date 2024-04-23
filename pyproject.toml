@@ -9,6 +9,12 @@ packages = [{include = "sandbox", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+llama-index = "^0.10.30"
+llama-index-core = "^0.10.30"
+llama-index-readers-file = "^0.1.19"
+llama-index-llms-ollama = "^0.1.2"
+llama-index-embeddings-huggingface = "^0.2.0"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
