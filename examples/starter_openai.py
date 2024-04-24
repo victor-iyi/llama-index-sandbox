@@ -17,7 +17,7 @@ load_dotenv()
 # logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
 # Path to store index.
-PERSIST_DIR: str = 'res/index'
+PERSIST_DIR: str = 'res/index/openai'
 
 
 def main() -> None:
