@@ -1,13 +1,13 @@
 # import logging
 # import sys
 import os
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 from llama_index.core import (
-    VectorStoreIndex,
     SimpleDirectoryReader,
     StorageContext,
-    load_index_from_storage
+    VectorStoreIndex,
+    load_index_from_storage,
 )
 
 load_dotenv()
@@ -21,6 +21,7 @@ PERSIST_DIR: str = 'res/index/openai'
 
 
 def main() -> None:
+    """Starting point of the script."""
     # storing index in "res/index/"
     if not os.path.exists(PERSIST_DIR):
         # Load documents and create the index.

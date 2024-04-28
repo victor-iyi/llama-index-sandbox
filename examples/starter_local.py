@@ -1,16 +1,15 @@
 # import os
 from dotenv import load_dotenv
-
 from llama_index.core import (
-    VectorStoreIndex,
     Settings,
     SimpleDirectoryReader,
-    # StorageContext,
-    # load_index_from_storage,
+    VectorStoreIndex,
 )
+
+# StorageContext,
+# load_index_from_storage,
 from llama_index.core.embeddings import resolve_embed_model
 from llama_index.llms.ollama import Ollama
-
 
 load_dotenv()
 
@@ -20,14 +19,13 @@ LOCAL_MODEL: str = 'llama3'
 
 
 def main() -> None:
+    """Starting point of the script."""
     # if not os.path.exists(PERSIST_DIR):
     # Load documents.
     documents = SimpleDirectoryReader('res/data').load_data()
 
     # bge embedding model.
-    Settings.embed_model = resolve_embed_model(
-        'local:BAAI/bge-small-en-v1.5'
-    )
+    Settings.embed_model = resolve_embed_model('local:BAAI/bge-small-en-v1.5')
     # Use local ollama model.
     Settings.llm = Ollama(model=LOCAL_MODEL, request_timeout=30.0)
 
