@@ -13,7 +13,7 @@ load_dotenv()
 
 DATA_PATH: str = 'res/data'
 CHROMA_PATH: str = 'res/chroma'
-CHROMA_COLLECTION: str = 'starter'
+CHROMA_COLLECTION: str = 'paul_graham_story'
 
 
 def main() -> None:
@@ -56,8 +56,9 @@ def main() -> None:
 
     # Create query engine.
     query_engine = index.as_query_engine()
-    response = query_engine.query('What is the capital of France?')
-    print(response)
+    while (question := input('Ask questions about the essay (q to quit): ')) != 'q':
+        response = query_engine.query(question)
+        print(f'Answer: {response}\n')
 
 
 if __name__ == '__main__':
