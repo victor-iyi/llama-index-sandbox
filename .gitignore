@@ -66,4 +66,5 @@ dmypy.json
 .DS_Store
 
 # Project ignores
-res/index/
+res/*
+!res/data
