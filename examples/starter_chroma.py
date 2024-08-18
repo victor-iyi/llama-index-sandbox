@@ -23,9 +23,8 @@ def main() -> None:
 
     # Check if collection exists.
     collection_exists = False
-    for collection in db.list_collections():
-        if collection.name == CHROMA_COLLECTION:
-            collection_exists = True
+    if any(collection.name == CHROMA_COLLECTION for collection in db.list_collections()):
+        collection_exists = True
 
     # Create collection.
     collection = db.get_or_create_collection(CHROMA_COLLECTION)
